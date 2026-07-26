@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngapali Beach</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #cce6ff; 
+      color: #333333;
+      line-height: 1.8;
+    }
+
+    .hero {
+      position: relative;
+	  height:600px;
+      background: url('https://static.idctravel.com/wp-content/uploads/n/34/Ngapali-Beach-1.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color:#fff;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      letter-spacing: 6px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+	
+    section {
+      margin-bottom: 90px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1b4943; 
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .section-subtitle {
+      display: block;
+      font-size: 0.85rem;
+      color: #8c7355;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .about-card {
+      background-color: #ffffff;
+      padding: 45px 35px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .about-card p {
+      font-size: 1.05rem;
+      color: #4a5568;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;    
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-img-wrapper {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.06);
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1b4943;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      color: #555555;
+    }
+
+    .hotel-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .feature-title {
+      font-weight: bold;
+      color: #1b4943;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #80c1ff;
+      color:  #1b4943;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .hero p { font-size: 0.95rem; }
+      .container { padding: 40px 16px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>NGAPALI</h1>
+    <p>静寂と透明な海に包まれる、ミャンマーの極上リゾート</p>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">About Ngapali</h2>
+      </div>
+      <div class="about-card">
+        <p>
+          ガパリビーチは、ミャンマー西部にある人気のリゾート地です。白い砂浜と透き通る青い海が広がり、静かでリラックスできる雰囲気が魅力です。ヤシの木に囲まれた自然豊かなビーチで、ゆったりとした時間を過ごせます。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Things to Do</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://image.shutterstock.com/image-photo/female-hand-delicious-refreshing-coconut-260nw-1687125454.jpg" alt="coconut">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">ココナッツジュース</h3>
+            <p class="card-text">ビーチで楽しむ新鮮な生搾りココナッツジュースで優雅なひとときを。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://tripjive.com/wp-content/uploads/2024/11/Ngapali-Beach-local-travel-tips.jpg" alt="sunset">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">サンセット鑑賞</h3>
+            <p class="card-text">地平線に沈む黄金色の夕日を眺める、贅沢な黄昏の時間。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://asiaprivatetravels.com/ckfinder/userfiles/images/destinations/Myanmar/ngapali-beach/ngapali-boat-tour.jpg" alt="activity">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">シュノーケリング & ボート</h3>
+            <p class="card-text">透明度の高い海へくり出し、カラフルな熱帯魚たちと出逢う体験。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://tripjive.com/wp-content/uploads/2024/11/local-transportation-options-in-Ngapali-Beach.jpg" alt="drive">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">サイクリング </h3>
+            <p class="card-text">海風を感じながらローカルな村や海岸線をゆっくり周遊。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://galatourist.com/pic/tour/images/MYANMAR_TOURS/Myanmar-Beach-Holidays/seafood-Ngapali-Beach.jpg" alt="seafood">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">新鮮なシーフード</h3>
+            <p class="card-text">その日に水揚げされたばかりの海の幸を贅沢に使った料理を堪能。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/Ngapali%20Beach.jpg" alt="relax">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">ビーチ散策 & 貝殻拾い</h3>
+            <p class="card-text">白い砂浜を歩きながら美しい貝殻を探したり、のんびり日差しを楽しんで。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+    <section>
+	  <div class="section-header">
+        <h2 class="section-title">Hotels & Stay</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://asia-myway.com/wp-content/uploads/2021/07/Amazing-Ngapali-5.jpg" alt="Amazing Ngapali">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">オーシャンフロントリゾート</h3>
+            <p class="card-text">客室から海を一望できる最高のロケーション。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://pix10.agoda.net/hotelImages/729893/-1/51c1b578cd82e9ec6f8dff8c83642f8b.jpg" alt="ホテル">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">ネイチャーバンガロー</h3>
+            <p class="card-text">ヤシの木に囲まれたプライベート感あふれるお部屋。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Myanmar Travel Guide by Yachi
+  </footer>
+
+</body>
+</html>

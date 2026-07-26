@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yangon Travel Guide</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: #f4f6f4; 
+    color: #2c3e2b; 
+    line-height: 1.7;
+  }
+
+  header {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url("https://travelshelper.com/wp-content/uploads/2021/09/Myanmar-travel-guide-Travel-S-helper.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+
+  header h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  section {
+    margin-bottom: 80px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #1b331e;
+    margin-bottom: 30px;
+    border-left: 5px solid #d4af37; 
+    padding-left: 15px;
+  }
+
+  .intro-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-bottom: 40px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .feature-card {
+    background: #f8faf8;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 3px solid #d4af37;
+    font-weight: bold;
+  }
+
+  .spot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .spot-item {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+  }
+
+  .spot-item:hover {
+    transform: translateY(-4px);
+  }
+
+  .spot-img {
+    flex: 1;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .spot-info {
+    flex: 1.5;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .spot-info h3 {
+    font-size: 1.4rem;
+    color: #1b331e;
+    margin-bottom: 15px;
+  }
+
+  .tabs-container {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  }
+
+  .tab-buttons {
+    display: flex;
+    background: #1b331e;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    color: #a3b8a3;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .tab-btn.active {
+    background: #ffffff;
+    color: #1b331e;
+    border-top: 4px solid #d4af37;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 40px;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .gallery-item {
+    background: #f8faf8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item img:hover {
+    transform: scale(1.03);
+  }
+
+  .gallery-item p {
+    padding: 12px 15px;
+    font-weight: bold;
+    color: #1b331e;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .tip-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-left: 4px solid #d4af37;
+  }
+
+  .tip-card h3 {
+    font-size: 1.1rem;
+    color: #1b331e;
+    margin-bottom: 10px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    background: #142819;
+    color: #a3b8a3;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 600px) {
+    .spot-item {
+      flex-direction: column;
+    }
+    .spot-img {
+      height: 200px;
+    }
+    .tab-buttons {
+      flex-direction: column;
+    }
+    header h1 {
+      font-size: 2.8rem;
+    }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>YANGON</h1>
+    <p>近代と伝統が融合したミャンマー最大の都市</p>
+  </div>
+</header>
+
+<main>
+
+  <section id="overview">
+    <div class="intro-box">
+      <h2>ヤンゴンについて</h2>
+      <p>ヤンゴンはミャンマー最大の都市であり、昔の首都です。現在も経済・文化・観光の中心として発展しています。人口は約700万人以上で、多くの民族や文化が混ざり合う国際的な都市です。イギリス植民地時代の建物が多く残っており、東南アジアの中でも独特な雰囲気を持っています。</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">✔ 植民地時代の建築が残る</div>
+        <div class="feature-card">✔ 仏教文化と都会生活が共存</div>
+        <div class="feature-card">✔ 食べ物が安くて美味しい</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spots">
+    <h2>有名な所</h2>
+    <div class="spot-list">
+      
+      <div class="spot-item">
+        <div class="spot-img" style="background-image: url('https://cdn2.veltra.com/ptr/20200221023141_1794571312_10639_0.jpg?imwidth=800&impolicy=custom');"></div>
+        <div class="spot-info">
+          <h3>シュエダゴン・パゴダ</h3>
+          <p>ヤンゴンを代表する黄金の仏塔で、ミャンマーで最も神聖な場所です。約2500年前に建てられたとされ、仏陀の遺物が納められています。昼も美しいですが、特に夕方から夜のライトアップがとても幻想的です。</p>
+        </div>
+      </div>
+
+      <div class="spot-item">
+        <div class="spot-img" style="background-image: url('https://c1.staticflickr.com/1/359/19018152105_1b066c8686_h.jpg');"></div>
+        <div class="spot-info">
+          <h3>スーレー・パゴダ</h3>
+          <p>ヤンゴン中心部にあり、街の交通のハブ（中心）にもなっています。歴史が非常に古く、地元の人々にとって非常に重要な信仰の場所です。</p>
+        </div>
+      </div>
+
+      <div class="spot-item">
+        <div class="spot-img" style="background-image: url('https://media.istockphoto.com/id/488602458/photo/view-of-karaweik-palace-in-yangon-myanmar.jpg?s=170667a&w=0&k=20&c=Ro4bt7GpyV-W6g7WWEyPcoKQAbfFcwBEVuNtyF1JrR4=');"></div>
+        <div class="spot-info">
+          <h3>カンドージー湖</h3>
+          <p>緑豊かで美しい湖で、市民のリラックスや夕方の散歩に最適です。湖の近くには、鳥の形をした美しい「カラウェイ宮殿」という有名なレストランもあります。</p>
+        </div>
+      </div>
+      
+      <div class="spot-item">
+        <div class="spot-img" style="background-image: url('https://propertiesinyangon.com/wp-content/uploads/2020/11/sec.jpg');"></div>
+        <div class="spot-info">
+          <h3>The Secretariat</h3>
+          <p>イギリス植民地時代の歴史的建物で、アウンサン将軍ゆかりの場所です。現在は観光スポットとして公開されています。</p>
+        </div>
+      </div>
+      
+      <div class="spot-item">
+        <div class="spot-img" style="background-image: url('https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2024/03/pHZCt0VI-p6-third-1.jpg');"></div>
+        <div class="spot-info">
+          <h3>Yangon Zoo</h3>
+          <p>ヤンゴン動物園は1906年に開園した、ミャンマーで最も歴史のある動物園の一つです。約200種類以上の動物が飼育されております。家族連れや観光客に人気です。</p>
+        </div>
+      </div>
+
+      <div class="spot-item">
+        <div class="spot-img" style="background-image: url('https://media.istockphoto.com/id/599100852/photo/warorot-indoor-market.jpg?s=612x612&w=0&k=20&c=dc6ETB38khTATfEYAwSgTD1YfbL9ZfuONTYnnifPVRg=');"></div>
+        <div class="spot-info">
+          <h3>ボージョー・アウンサン・マーケット</h3>
+          <p>お土産やミャンマーの伝統工芸品、宝石などがずらりと並ぶ有名な歴史ある市場です。歩くだけでも活気を楽しめます。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2>ヤンゴンでやるべきこと</h2>
+    
+    <div class="tabs-container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="switchTab(event, 'inya')">Inya Lake</button>
+        <button class="tab-btn" onclick="switchTab(event, 'market')">ナイトマーケット</button>
+        <button class="tab-btn" onclick="switchTab(event, 'china')">China Market</button>
+        <button class="tab-btn" onclick="switchTab(event, 'shopping')">モール巡り</button>
+      </div>
+
+      <!-- Inya Lake (2 images side-by-side) -->
+      <div id="inya" class="tab-content active">
+        <h3>Inya Lake</h3>
+        <p style="margin-bottom: 15px;">静かな雰囲気の中で散歩やリラックスができます。夕方の景色がとてもきれいです。</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://thegoguy.com/wp-content/uploads/2023/07/Wunna-Theikdi-Stadium-Nayipydaw-Myanmar-768x509.jpg" alt="inya1">
+          </div>
+          <div class="gallery-item">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/cc/27/7a/beauty-of-inya-lake-in.jpg" alt="inya2">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Night Market (2 images side-by-side) -->
+      <div id="market" class="tab-content">
+        <h3>ナイトマーケットを散策する</h3>
+        <p style="margin-bottom: 15px;">夜になると、特定の通りやエリアにたくさんの屋台が集まるナイトマーケットが出現します。新鮮なフルーツや串焼きの煙、お土産品など、熱気あふれるアジアの夜の雰囲気を満喫できます。</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://destinationlesstravel.com/wp-content/uploads/2019/03/chinatown-has-some-of-the-best-food-in-yangon.jpg" alt="market1">
+          </div>
+          <div class="gallery-item">
+            <img src="https://vietravelasia.com/media/images/2022/12/night-market-along-strand-road-yangon-myanmar-8dae92d97427e5b5fd25ea053b30149d.jpg" alt="market2">
+          </div>
+        </div>
+      </div>
+   
+      <!-- China Market (2 images side-by-side) -->
+      <div id="china" class="tab-content">
+        <h3>China Market</h3>
+        <p style="margin-bottom: 15px;">ヤンゴンの夜で一番にぎやかなエリア。特に19番通りはグルメで有名です。</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2019/04/Shopping-In-Myanmar-og.jpg" alt="china1">
+          </div>
+          <div class="gallery-item">
+            <img src="https://myanmarairfares.com/uploads/yangon_nightlife_2.jpg" alt="china2">
+          </div>
+        </div>
+      </div>
+
+      <!-- Shopping Malls (3 images side-by-side) -->
+      <div id="shopping" class="tab-content">
+        <h3>モール巡り</h3>
+        <p style="margin-bottom: 15px;">買い物好きな人のための人気ショッピングモール一覧です。</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://i.pinimg.com/originals/38/b9/c5/38b9c53080c1ccc2caa4730b7f6077a8.jpg" alt="timecity">
+            <p>Time City</p>
+          </div>
+          <div class="gallery-item">
+            <img src="https://place.com-photos.com/28476/junction-square-AF1QipMuRUWOnuWQK0WDMu33h7G-n3MqUR9Up3jYqqvl.jpg" alt="junction square">
+            <p>Junction Square</p>
+          </div>
+          <div class="gallery-item">
+            <img src="https://myanmartravel.com/images/2020/11/Myanmar-Plaza-in-myanmar.jpg" alt="myanmar plaza">
+            <p>Myanmar Plaza</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2>旅行のアドバイス</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h3>🙏 パゴダ（仏塔）でのマナー</h3>
+        <p>寺院内では靴や靴下を脱いで素足になる必要があります。肩や膝が出る服装は避け、肌の露出が少ない服を着用しましょう。</p>
+      </div>
+      <div class="tip-card">
+        <h3>🚕 市内の移動手段</h3>
+        <p>配車アプリ「Grab」を利用すると、言葉が通じなくても安心してタクシー移動ができます。料金も事前に分かるため便利です。</p>
+      </div>
+      <div class="tip-card">
+        <h3>☀️ 気候と服装</h3>
+        <p>日中は日差しが強いため、日焼け止めや帽子、サングラスが必須です。また水分補給をこまめに行いましょう。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<script>
+  function switchTab(event, tabId) {
+    var contents = document.getElementsByClassName('tab-content');
+    for (var i = 0; i < contents.length; i++) {
+      contents[i].classList.remove('active');
+    }
+
+    var buttons = document.getElementsByClassName('tab-btn');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('active');
+    }
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+<footer>
+     Myanmar Travel Guide By Yachi
+</footer>
+</body>
+</html>

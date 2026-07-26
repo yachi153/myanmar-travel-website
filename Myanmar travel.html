@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel to Myanmar</title>
+
+<style>
+body {
+    margin: 0;
+    background-color: #e7cbb1;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #86592d;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav-logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.nav-logo img {
+    height: 35px;
+    margin-right: 12px;
+    border-radius: 4px;
+}
+.nav-links a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.3s;
+}
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.hero video {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+}
+
+.section-title {
+    text-align: center;
+    margin: 50px 0 20px 0;
+    font-size: 36px;
+    font-weight: bold;
+    color:#86592d;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+.about-card {
+    background:#86592d;
+    border-radius: 16px;
+    padding: 35px;
+}
+.about-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.about-text {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.8;
+    color: white;
+}
+.about-images {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.about-img-box {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-img-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.about-img-box:hover img {
+    transform: scale(1.05);
+}
+
+.about-img-box span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #86592d;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 5px;
+}
+
+.card-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.card {
+    min-width: 260px;
+    background: white;
+    overflow: hidden;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 15px;
+    text-align: center;
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #86592d;
+    color: white;
+    border: none;
+    border-radius: 30%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+.slider-btn:hover {
+    background-color: #e67300;
+}
+.slider-btn.left {
+    left: 5px;
+}
+.slider-btn.right {
+    right: 5px;
+}
+
+.map-outer-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 60px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 850px; 
+    min-height: 600px;
+    background: transparent;
+    padding: 20px;
+}
+
+#map-container-inner {
+    position: relative;
+    width: 350px; 
+    margin: 0 auto; 
+    transition: all 0.3s ease;
+}
+
+#map-container-inner img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: contain; 
+    display: block;
+}
+
+.info-box {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.info-box h3 {
+    margin: 0 0 10px 0;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+.info-box p {
+    color:black ;
+    font-size: 15px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.map-label {
+    position: absolute;
+    z-index: 10;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    background-color: #86592d;
+    padding: 4px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.around-photo {
+    position: absolute;
+    width: 180px;   
+    height: 130px;  
+    object-fit: contain;
+    background-color: #f0f0f0;
+    border-radius: 10px; 
+    transition: transform 0.3s;
+    display: none; 
+    cursor: pointer;
+}
+.around-photo:hover {
+    transform: scale(1.08);
+}
+
+#p1 { top: 40px; left: -20px; }    
+#p2 { top: 40px; right: -20px; }    
+#p3 { top: 190px; left: -20px; }  
+#p4 { top: 190px; right: -20px; }    
+#p5 { top: 340px; left: -20px; }     
+#p6 { top: 340px; right: -20px; }    
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #86592d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none; 
+    transition: 0.2s;
+    z-index: 20;
+}
+.close-btn:hover {
+    background-color:#e67300;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-box {
+    background: white;
+    width: 450px;
+    max-width: 90%;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    animation: popupAnimation 0.3s ease-out forwards;
+}
+@keyframes popupAnimation {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #86592d;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.modal-close:hover {
+    color: #333;
+}
+.modal-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+.modal-img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain; 
+    background-color: #f9f9f9;
+    border-radius: 12px;
+}
+.modal-desc {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.game-section {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-info-panel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.game-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    display: none;
+}
+
+.game-card {
+    width: 100px;
+    height: 100px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    font-size: 0;
+}
+
+.game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+#game-message {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.game-over-text {
+    color: #d32f2f !important;
+    font-size: 32px !important;
+}
+
+.game-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background-color:  #86592d;
+    color: white;
+    margin-top: 15px;
+}
+
+#resetButton {
+    background-color:#86592d;
+}
+
+.game-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+}
+
+.game-modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 340px;
+    width: 90%;);
+}
+
+.game-modal-content h2 {
+    color: #4caf50;
+    margin-top: 0;
+}
+
+.destination-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.destination-item {
+    display: block;
+    padding: 10px;
+    background-color: #f0f4f8;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid #bbdefb;
+    transition: background-color 0.2s;
+}
+
+.destination-item:hover {
+    background-color: #e3f2fd;
+}
+
+.destination-item.disabled {
+    background-color: #ddd !important;
+    color: #888 !important;
+    border-color: #ccc !important;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.plan-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.plan-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.plan-card img {
+    width: 40%;
+    object-fit: cover;
+}
+
+.plan-card-content {
+    padding: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plan-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.plan-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    text-decoration: none;
+    color: #0b6e4f;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background:#86592d;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .nav-links a {
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+    .hero video {
+        height: 250px; 
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+    .about-images {
+        grid-template-columns: 1fr; 
+    }
+
+    .plan-grid {
+        grid-template-columns: 1fr; 
+    }
+    .plan-card {
+        flex-direction: column; 
+    }
+    .plan-card img {
+        width: 100%;
+        height: 180px;
+    }
+    .plan-card-content {
+        width: 100%;
+    }
+
+    .map-outer-container {
+        padding: 0 10px;
+        overflow-x: auto; 
+    }
+    .map-wrapper {
+        width: 100%;
+        min-height: auto;
+    }
+    #map-container-inner {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .game-grid-container {
+        grid-template-columns: repeat(3, 80px); 
+        grid-gap: 10px;
+    }
+    .game-card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .modal-box {
+        width: 90%;
+        padding: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">
+        <img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/Flag_of_Myanmar.jpg" alt="Flag">
+        Travel To Myanmar
+    </div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#ethnic-section">Ethnics</a>
+        <a href="#game-section">Game</a>
+        <a href="#plan-your-trip">Plan Your Trip</a>
+    </div>
+</nav>
+
+<div id="home" class="hero">
+    <video src="https://github.com/yachi153/myanmar/raw/c4cde474f24f8c08372b6ec4f31415119a961124/myanmar.MP4" autoplay loop muted></video>
+</div>
+
+<h1 id="about" class="section-title">About Myanmar</h1>
+<div class="about-container">
+    <div class="about-card">
+        <div class="about-content">
+            <div class="about-text">
+                ミャンマーは、東南アジアに位置する自然豊かな国です。西はバングラデシュとインド、北は中国、東はラオスとタイに接し、南西側はベンガル湾、南側はアンダマン海に面しています。緑あふれる山々や森林、川が広がる美しい風景が魅力で、「緑の国」とも呼ばれるほど自然環境に恵まれています。<br><br>
+                首都はネピドーで、近代的な都市として整備されています。かつては「ビルマ（Burma）」という名称で知られていましたが、現在は「ミャンマー（Myanmar）」が正式名称として使用されています。
+            </div>
+            <div class="about-images">
+                <div class="about-img-box">
+                    <img src="https://secure.flymna.com/Content/Layouts/Smooth/Filebank-Document/0d646d33-60f9-4da6-94ca-ca92c49e04ec.12F63.jpeg" alt="Myanmar Culture">
+                </div>
+                <div class="about-img-box">
+                    <img src="https://www.gomyanmartours.com/wp-content/uploads/2014/11/Nay-Pyi-Taw-the-capital-city-of-Myanmar.jpg" alt="Nay Pyi Taw">
+                    <span>NAY PYI TAW</span>
+                </div>
+            </div>
+        </div>
+        <p style="margin: 0; font-size: 15px; color: white; line-height: 1.8;">
+            ミャンマーには、7つの州（民族州）と7つの地域（管区）があり、135以上の民族グループが存在します。宗教は主に上座部仏教で、全国各地に美しい寺院や仏塔が点在しています。豊かな自然と温かい人々に恵まれた charm 溢れる国です。
+        </p>
+    </div>
+</div>
+
+<h1 id="destinations" class="section-title">Top Destinations</h1>
+
+<div class="slider-wrapper">
+    <button class="slider-btn left" onclick="slideLeft()">&lt;</button>
+    
+    <div class="card-container" id="destinationsContainer">
+        <div class="card">
+		    <a href="bagan.html" ><img src="https://raw.githubusercontent.com/yachi153/myanmar/4dbd084f4b2e4e86be9946daf3e47469e5ab3ff7/bagan1.jpg"></a>
+			<div class="card-content">			    
+				<h3>Bagan</h3>				
+			</div>
+		</div>
+		<div class="card">
+		    <a href="yangon.html" ><img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/shwedagon-pagoda.jpg"></a>
+			<div class="card-content">			    
+				<h3>Yangon</h3>				
+			</div>
+		</div>
+		
+        <div class="card">
+			<a href="inlay.html"><img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/inlay6.jpg"></a>
+			<div class="card-content">
+				<h3>Inlay Lake</h3>
+			</div>
+		</div>
+		
+        <div class="card">
+		    <a href="mandalay.html" ><img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/mandalay.jpg"></a>
+			<div class="card-content">			    
+				<h3>Mandalay</h3>				
+			</div>
+		</div>
+		<div class="card">
+			<a href="Kyitehtiyoe.html"><img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/kyitehtiyoe.jpg"></a>
+			<div class="card-content">
+				<h3>Kyitehtiyoe Pagoda</h3>
+			</div>
+		</div>
+        <div class="card">
+			<a href="Hpa-an.html"><img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/hpa-an2.jpg"></a>
+			<div class="card-content">
+				<h3>Hpa-An</h3>
+			</div>
+		</div>
+        <div class="card">
+		    <a href="kawthaung.html" ><img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/Kawthaung%20Town.jpg"></a>
+			<div class="card-content">			    
+				<h3>Kawthaung</h3>				
+			</div>
+		</div>
+        <div class="card">
+		    <a href="ngapali.html" ><img src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/ngapli.jpg"></a>
+			<div class="card-content">			    
+				<h3>Ngapli Beach</h3>				
+			</div>
+		</div>
+    </div>
+
+    <button class="slider-btn right" onclick="slideRight()">&gt;</button>
+</div>
+
+<h1 id="ethnic-section" class="section-title">Myanmar Main Ethnic Groups </h1>
+
+<div class="map-outer-container">
+    <div class="map-wrapper">
+        
+        <button id="close-map-btn" class="close-btn" onclick="resetMap()">Close Map</button>
+
+        <img id="p1" class="around-photo" src="" onclick="openModal(this)">
+        <img id="p2" class="around-photo" src="" onclick="openModal(this)">
+        <img id="p3" class="around-photo" src="" onclick="openModal(this)">
+        <img id="p4" class="around-photo" src="" onclick="openModal(this)">
+        <img id="p5" class="around-photo" src="" onclick="openModal(this)">
+        <img id="p6" class="around-photo" src="" onclick="openModal(this)">
+
+        <div id="map-container-inner">
+            <img id="main-map-img" src="https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/map.jpg">
+        </div>
+
+        <div class="info-box">
+            <h3 id="ethnic-title">Myanmar Map</h3>
+            <p id="ethnic-desc"></p> 
+        </div>
+
+    </div>
+</div>
+
+<h1 id="game-section" class="section-title">ゲームしながらミャンマーへ旅行しましょう</h1>
+<div class="game-section">
+    <div id="game-message">Click! Start Game</div>
+    
+    <div class="game-info-panel" id="infoPanel" style="display: none;">
+        Level: <span id="levelDisplay">1</span> | Remaining Tries: <span id="triesDisplay">8</span>
+    </div>
+
+    <button id="startbutton" class="game-btn">Start Game</button>
+
+    <div class="game-grid-container" id="game-container"></div>
+    
+    <button id="resetButton" class="game-btn" style="display:none;">Restart Game</button>
+
+    <div class="game-modal-overlay" id="rewardModal">
+        <div class="game-modal-content">
+            <h2>Level Cleared!</h2>
+            <p>行きたいところ． 知りたいことを選んでください</p>
+            
+            <div class="destination-list" id="destinationList"></div>
+
+            <button id="nextLevelBtn" class="game-btn">Next Level</button>
+        </div>
+    </div>
+</div>
+
+<h1 id="plan-your-trip" class="section-title">Plan Your Trip</h1>
+
+<div class="plan-container">
+    <div class="plan-grid">
+
+      <div class="plan-card">
+        <img src="https://myanmartravel.com/images/2020/09/intro-sim-card-in-myanmar.jpg" alt="Wi-Fi & Connectivity">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">📶 Wi-Fi / Connectivity（インターネット）</h3>
+            <p class="plan-card-description">ホテルやカフェではWi-Fiが利用できます。ただし、速度が遅いことや不安定な場合があります。現地SIMカード（Ooredoo・Telenorなど）を購入すると便利です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <img src="https://i.pinimg.com/originals/6f/8d/56/6f8d568e48a58cb90d8af9dc64cca49f.png" alt="Language">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">🌏 Language（言語）</h3>
+            <p class="plan-card-description">ミャンマーの公用語はビルマ語です。観光地やホテルでは英語が通じることが多いですが、地方ではあまり通じません。簡単な英語や翻訳アプリを準備すると安心です。</p>
+          </div>
+          <a href="language.html" class="learn-more">Learn More &gt;</a>
+        </div>
+      </div>
+
+
+      <div class="plan-card">
+        <img src="https://c8.alamy.com/comp/2M6WHBB/myanmar-money-a-business-background-2M6WHBB.jpg" alt="Currency & Exchange">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">💰 Money Exchange（両替）</h3>
+            <p class="plan-card-description">通貨はチャット（MMK）です。昔は coin あるが、今は使わないです。空港や市内の両替所で両替可能です。クレジットカードは使えない場所も多いので、現金を準備しましょう。</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="plan-card">
+        <img src="https://www.tripsavvy.com/thmb/CZevmQTfyrQDA3XgW4MpLtSVNYg=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/visiting-buddhist-temples-dos-and-donts-1629907_final-5c1140f846e0fb00017653a0.png" alt="Temple Etiquette">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">🛕Temple Etiquette</h3>
+            <p class="plan-card-description">寺院では靴と靴下を脱ぎます。肌の露出が少ない服（長ズボン・長袖など）を着ましょう。仏像に背を向けて写真を撮るのは避けてください。静かに行動し、敬意を持って参拝しましょう。</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="plan-card">
+        <img src="https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2023/04/545.jpg" alt=" Transportation">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">🚕 Transportation（交通）</h3>
+            <p class="plan-card-description">タクシーが主な移動手段です（メーターなしが多いので事前に料金交渉）。バスや電車もありますが、観光客には少し難しいです。配車アプリ（Grab）が使える都市もあります。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <img src="https://www.go-myanmar.com/sites/go-myanmar.com/files/uploads/go_myanmar_weather_report_for_myanmar_resize_edit-01_1.jpg" alt="☀️ Weather（気候）">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">☀️ Weather（気候）</h3>
+            <p class="plan-card-description">暑い国なので、軽い服装が必要です。ベストシーズンは11月〜2月（涼しくて観光しやすい）。日焼け対策（帽子・日焼け止め）も大事です。</p>
+          </div>
+          <a href="weather.html" class="learn-more">Learn More &gt;</a>
+        </div>
+      </div>
+	  
+	  <div class="plan-card">
+        <img src="https://mediacache.springnest.com/media/cache/6d/67/6d67a25123cd750e618e8255caf313a3.jpg" alt=" 🍜 Food & Water">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">🍜 Food & Water（食事・水）</h3>
+            <p class="plan-card-description">ミャンマー料理は油が多めでスパイシーなものもあります。屋台は美味しいですが、衛生面に注意。水は必ずボトルウォーターを飲みましょう。</p>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="plan-card">
+        <img src="https://scontent.fitm2-2.fna.fbcdn.net/v/t39.30808-6/301013873_463044085834630_367848539601909564_n.png?stp=dst-png&cstp=mx917x444&ctp=s917x444&_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=ihY8Fe3qK6MQ7kNvwGi58p_&_nc_oc=Adog9njpDlVmpj02kHApB473wK8e4O0o4EZsVpsEhX7r4X5PCgZbHPf68-wP-EmUctbl9-IHX8KVspqVMSnw9sjI&_nc_zt=23&_nc_ht=scontent.fitm2-2.fna&_nc_gid=PPZhFgvx1UWjrFC9fK4Z1w&_nc_ss=7b2a8&oh=00_AQDOGamCrl0fP3Ze1qHoK4DKIlTITZmMC3hvGOuUmnbaUA&oe=6A677C43" alt=" Safety">
+        <div class="plan-card-content">
+          <div>
+            <h3 class="plan-card-title">⚠️ Safety（安全））</h3>
+            <p class="plan-card-description">基本的に親切な人が多く安全ですが、スリや貴重品の管理には注意しましょう。政治状況によっては渡航制限がある場合もあるので、事前に確認が必要です。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box">
+        <button class="modal-close" onclick="forceCloseModal()">&times;</button>
+        <div id="modalTitle" class="modal-title">Spot Detail</div>
+        <img id="modalImg" class="modal-img" src="" alt="Detail View">
+        <div id="modalDesc" class="modal-desc"></div>
+    </div>
+</div>
+
+<script>
+
+function slideLeft() {
+    var container = document.getElementById('destinationsContainer');
+    container.scrollBy({ left: -280, behavior: 'smooth' });
+}
+
+function slideRight() {
+    var container = document.getElementById('destinationsContainer');
+    container.scrollBy({ left: 280, behavior: 'smooth' });
+}
+
+var defaultMap = "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/map.jpg";
+
+var ethnicData = [
+    {
+        name: "Kachin",
+        map: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kachinmap.jpg", 
+        desc: "カチン州（Kachin State）はミャンマー最北部にある州で、中国・インドと国境を接しています。州都はミッチーナ（Myitkyina）です。高い山や深い森、大きな川など、雄大な自然が広がる地域で、「エーヤワディー川（イラワジ川）」の源流でも有名です。音楽・踊り・祭りがとても豊かです。",
+        x: 170, y: 60,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/indagyilake.jpg", title: "Indawgyi Lake", desc: "ミャンマー最大の天然湖で、豊かな自然と水上寺院が有名です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Myitgyina.jpg", title: "Myitkyina", desc: "カチン州の州都で、エーヤワディー川の美しい景色とマナウ祭りで知られています。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/putao.jpg", title: "Putao", desc: "ヒマラヤ山脈の麓にある町で、雪山と美しいトレッキングコースが魅力です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/myitsone.jpg", title: "Myitsone", desc: "メイカ川とマリカ川が合流してエーヤワディー川となる有名な合流点です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/manaw.jpg", title: "Manaw Festival", desc: "カチン族の最も重要で伝統的なお祝いで、巨大なマナウ柱の周りで踊ります。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kachindress.jpg", title: "Kachin Costume", desc: "銀の装飾とカラフルな手作業の刺繍が特徴的なカチン族の伝統衣装です。" }
+        ]
+    },
+    {
+        name: "Kayah",
+        map: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kayahmap.jpg", 
+        desc: "カヤー州はミャンマー東部に位置し、タイと国境を接する小さな州です。州都はロイコー（Loikaw）で、美しい山や湖、少数民族の文化が豊かなことで知られています。特に「カヤン族（首長族）」の伝統文化が有名で、多くの観光客が訪れます。",
+        x: 190, y: 240,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Taung%20Kwe%20Pagoda%20.jpg", title: "タウン・クウェ・パゴダ", desc: "ロイコーを代表する寺院で、岩山の上に建てられています。頂上からの夕日がとても美しいです。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Karen%20long%20neck%20villages.jpg", title: "カヤン族の村（Long Neck Village）", desc: "首にリングをつける伝統で知られるカヤン族の村です。伝統的な生活や織物を見ることができます。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kayahdancejpg.jpg", title: "カヤーの伝統的な踊り", desc: "お祭りや特別な行事で披露され、竹や伝統楽器を用いたゆっくりとした動きが特徴です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kayahdress%2Cjpg.jpg", title: "カヤーの伝統衣装", desc: "赤色がよく使われ、手織りの布で作られた衣装です。歴史や意味が込められた模様が描かれています。" }
+        ]
+    },
+    {
+        name: "Kayin",
+        map: "https://c8.alamy.com/comp/2S99CA2/map-of-myanmar-with-the-provinces-kayin-is-highlighted-2S99CA2.jpg",
+        desc: "カリン州（Kayin State）はミャンマー東남部にあり、タイと国境を接しています。州都はパアン（Hpa-An）で、美しい石灰岩の山々や洞窟、川の景色でとても有名です。自然と文化が両方楽しめる観光地です。",
+        x: 190, y: 290,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/zwekapin.jpg", title: "ズウェカビン山", desc: "カイン州で一番有名な山で、頂上の僧院からの景色や朝日が見どころです。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Sandancave.jpg", title: "サダン洞窟", desc: "大きな洞窟内に仏像や岩があり、出口の湖からボートに乗って外に出る体験ができます。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Mount%20Taung%20Wine.jpg", title: "タウンワイン山", desc: "きれいな景色や自然を感じられる有名な所です。写真者におすすめです。"},
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kyaukkalappagoda.jpg", title: "キョークカラップ・パゴダ", desc: "湖の中の小さな岩山の上にある寺院で、水面に映る景色が非常に美しい場所です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kayindance.jpg", title: "カレンダンス", desc: "お正月（カレン新年）等で披露される、竹を使ったダンスやグループダンスが特徴です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Karendress.jpg", title: "カレン族の伝統衣装", desc: "赤・白・黒などの色が使われた手織り衣装で、女性は長いワンピースを着ます。" }
+        ]
+    },
+    {
+        name: "Chin",
+        map: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/chinmap.jpg",
+        desc: "チン州（Chin State）はミャンマー西部にある山岳地帯で、インドと国境を接しています。州都はハカ（Hakha）です。高い山や深い森に囲まれた自然豊かな地域で、観光客が少なく、静かで美しい場所として知られています。",
+        x: 90, y: 150,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Nat%20Ma%20Taung%20.jpg", title: "Nat Ma Taung ", desc: "チン州で最も高い山で、珍しい植物や美しい自然景観で有名です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/mintat.jpg", title: "Mindat", desc: "チン族の伝統的な文化や顔のタトゥー文化が残る山間の静かな町です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/hakha.jpg", title: "Hakha", desc: "チン州の州都であり、山々に囲まれた景色と爽やかな気候が特徴です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/chindance.jpg", title: "Chin Dance", desc: "伝統的なお祝いやお祭りで披露されるリズミカルで活気のある踊りです。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/chindress.jpg", title: "Chin Dress", desc: "独特の幾何学模様と鮮やかな手織り布で作られた伝統衣装です。" }
+        ]
+    },
+    {
+        name: "Burma",
+        map: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/burmamap.jpg",
+        desc: "ビルマ族（Bamar）は、ミャンマーで最も人口が多い民族で、国の約70％を占めています。主にヤンゴンやマンダレーなどの平野部に住んでおり、ミャンマーの文化や社会の中心的な存在です。",
+        x: 125, y: 170,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/shwedagon-pagoda1.jpg", title: "Shwedagon Pagoda", desc: "ヤンゴンに位置する黄金の聖なるパゴダで、ミャンマー仏教の中心地です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/myanmar/4dbd084f4b2e4e86be9946daf3e47469e5ab3ff7/bagan3.jpg", title: "Bagan", desc: "数千の古代仏塔が立ち並ぶ世界的に有名な歴史遺跡地域です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/burmadress.jpg", title: "Burmese Costume", desc: "ビルマ族の伝統衣装は「ロンジー（Longyi）」です。男性：パソー（Paso）女性：タメイン（Htamein）" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/burmadance.jpg", title: "Burmese Traditional Dance", desc: "ビルマ族の踊りはとても優雅で、手や指の細かい動きが特徴です。王朝時代から続く伝統文化です。" }
+        ]
+    },
+    {
+        name: "Mon",
+        map: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kayinmap.jpg",
+        desc: "モン州（Mon State）はミャンマー南東部にあり、海と川に囲まれた自然豊かな地域です。州都はモーラミャイン（Mawlamyine）で、歴史的にも重要な都市です。モン族の文化や仏教遺跡が多く、観光地としても人気があります。",
+        x: 165, y: 310,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/kyitehtoeyoe.jpg", title: "チャイティーヨー・パゴダ", desc: "崖の上にバランスよく乗っている不思議な「ゴールデンロック」として有名な仏教遺跡です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/mawlamyine.jpg", title: "モーラミャイン", desc: "植民地時代の建物や寺院が多く残る川沿いの歴史的な町です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/NGWE_SAUNG.jpg", title: "セッセビーチ", desc: "モン州で人気のビーチで、静かにリラックスできる地元の人気スポットです。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/biluisland.jpg", title: "ビル島（Bilu Island）", desc: "ゴムや木工品など、伝統手工芸で有名な島です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/mondress.jpg", title: "モン族の伝統衣装", desc: "シンプルで落ち着いたデザインで、女性はロンジーとブラウスを着用します。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/mondancejpg.jpg", title: "モンダンス", desc: "優雅でゆっくりとした動きが特徴で、宗教行事やお祝いで披露されます。" }
+        ]
+    },
+    {
+        name: "Rakhine",
+        map: "https://c8.alamy.com/comp/2S99C35/map-of-myanmar-with-the-provinces-rakhine-is-highlighted-2S99C35.jpg",
+        desc: "ラカイン州（Rakhine State）はミャンマー西部、ベンガル湾に面した地域です。美しいビーチと古代遺跡で有名で、自然と歴史の両方を楽しめます。州都はシットウェ（Sittwe）です。",
+        x: 85, y: 220,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Ngapali%20Beach.jpg", title: "ガパリビーチ", desc: "白い砂浜と透明な海が広がる、ミャンマーで最も美しいビーチの一つです。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/myaukoo.jpg", title: "ミャウウー遺跡", desc: "古代ラカイン王国の遺跡で、多くの石造り寺院が静けさの中に佇んでいます。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/sittwe.jpg", title: "シットウェ", desc: "ラカイン州の州都で、市場や海辺の景色が楽しめる港町です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/rakhinedance.jpg", title: "ラカインダンス", desc: "太鼓の音に合わせてリズミカルかつ力強く踊る伝統舞踊です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/rakhinedress.jpg", title: "ラカイン族の伝統衣装", desc: "地域特有の模様が組み込まれたシンプルで機能的な衣装です。" }
+        ]
+    },
+    {
+        name: "Shan",
+        map: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/shanmap.jpg",
+        desc: "シャン州（Shan State）はミャンマーで一番大きな州で、東部に位置しています。山や高原が広がり、気候は比較的涼しく、とても過ごしやすい地域です。多くの民族（シャン族、パオ族、インダー族など）が住んでおり、文化もとても豊かです。",
+        x: 190, y: 155,
+        photos: [
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/taunggyi.jpg", title: "タウンジー", desc: "シャン州の州都で、夜空に気球が上がる「気球祭り」が非常に有名です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Kalaw%20%F0%9F%87%B2%F0%9F%87%B2.jpg", title: "カロー", desc: "涼しい気候の町で、自然を楽しめるトレッキングの拠点として人気です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/inlay.jpg", title: "インレー湖", desc: "片足でボートをこぐ漁師や水上住宅、水上マーケットが見どころの湖です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/Hsipaw.jpg", title: "シッポー", desc: "ローカルな生活やゴッティ鉄橋の景色が楽しめる静かな町です。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/shandress.jpg", title: "シャン族の伝統衣装", desc: "シンプルで上品なデザインで、男性はジャケットやターバンを身につけます。" },
+            { url: "https://raw.githubusercontent.com/yachi153/Ethnic-photos/main/shandance.jpg", title: "シャンダンス", desc: "優雅でゆっくりとした動作が特徴のお祭りや新年に踊られる舞踊です。" }
+        ]
+    }
+];
+
+var currentActiveGroupPhotos = [];
+
+window.onload = function() {
+    var mapContainer = document.getElementById("map-container-inner");
+    
+    ethnicData.forEach(function(group, index) {
+        var label = document.createElement("div");
+        label.className = "map-label";
+        label.innerHTML = group.name;
+        label.style.left = group.x + "px";
+        label.style.top = group.y + "px";
+        
+        label.onmouseover = function() { this.style.backgroundColor = "#86592d"; };
+        label.onmouseout = function() { this.style.backgroundColor = "#e67300"; };
+        
+        label.setAttribute("onclick", "selectEthnic(" + index + ")");
+        mapContainer.appendChild(label);
+    });
+};
+
+function selectEthnic(index) {
+    var data = ethnicData[index];
+    currentActiveGroupPhotos = data.photos;
+    var mapImg = document.getElementById("main-map-img");
+    
+    mapImg.src = data.map;
+    
+    var labels = document.querySelectorAll('.map-label');
+    labels.forEach(function(label) {
+        label.style.display = 'none';
+    });
+
+    document.getElementById("ethnic-title").innerHTML = data.name;
+    document.getElementById("ethnic-desc").innerHTML = data.desc;
+
+    document.getElementById("close-map-btn").style.display = "block";
+
+    for (var i = 1; i <= 6; i++) {
+        var pImg = document.getElementById("p" + i);
+        var photoObj = data.photos[i - 1];
+        
+        if(photoObj && photoObj.url && photoObj.url !== "") {
+            pImg.src = photoObj.url;
+            pImg.setAttribute("data-index", i - 1);
+            pImg.style.display = "block"; 
+        } else {
+            pImg.style.display = "none"; 
+        }
+    }
+}
+
+function resetMap() {
+    var mapImg = document.getElementById("main-map-img");
+    mapImg.src = defaultMap;
+
+    var labels = document.querySelectorAll('.map-label');
+    labels.forEach(function(label) {
+        label.style.display = 'block';
+    });
+
+    document.getElementById("ethnic-title").innerHTML = "Myanmar Map";
+    document.getElementById("ethnic-desc").innerHTML = "";
+
+    document.getElementById("close-map-btn").style.display = "none";
+
+    for (var i = 1; i <= 6; i++) {
+        document.getElementById("p" + i).style.display = "none";
+    }
+}
+
+function openModal(element) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImg");
+    var modalTitle = document.getElementById("modalTitle");
+    var modalDesc = document.getElementById("modalDesc");
+
+    var pIndex = element.getAttribute("data-index");
+    var photoInfo = currentActiveGroupPhotos[pIndex];
+
+    if(photoInfo) {
+        modalImg.src = photoInfo.url;
+        modalTitle.innerText = photoInfo.title;
+        modalDesc.innerText = photoInfo.desc;
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeModal(event) {
+    if (event.target.id === "imageModal") {
+        document.getElementById("imageModal").style.display = "none";
+    }
+}
+
+function forceCloseModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
+var startButton = document.getElementById("startbutton");
+var resetButton = document.getElementById("resetButton");
+var gameContainer = document.getElementById("game-container");
+var gameMessage = document.getElementById("game-message");
+var infoPanel = document.getElementById("infoPanel");
+var levelDisplay = document.getElementById("levelDisplay");
+var triesDisplay = document.getElementById("triesDisplay");
+
+var rewardModal = document.getElementById("rewardModal");
+var destinationList = document.getElementById("destinationList");
+var nextLevelBtn = document.getElementById("nextLevelBtn");
+
+var firstCard = null;
+var secondCard = null;
+var lock = false;
+
+var currentLevel = 1;
+var maxLevel = 10;
+var remainingTries = 16;
+var matchedPairs = 0;
+
+var destinationLinks = [
+    { name: "Bagan", file: "bagan.html" },
+    { name: "Inlay Lake", file: "inlay.html" },
+    { name: "Ngapali Beach", file: "ngapali.html" },
+    { name: "Kyitehtiyoe Pagoda", file: "kyitehtiyoe.html" },
+    { name: "Mandalay", file: "mandalay.html" },
+    { name: "Kawthaung", file: "kawthaung.html" },
+    { name: "hpa-an", file: "hpa-an.html" },
+    { name: "Yangon", file: "yangon.html" },
+    { name: "Language", file: "language.html" },
+    { name: "Weather", file: "weather.html" }
+];
+
+var placeImages = [
+    "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/ngapli.jpg",
+    "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/hpa-an2.jpg",
+    "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/kyitehtiyoe.jpg",
+    "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/inlay6.jpg",
+    "https://raw.githubusercontent.com/yachi153/myanmar/398f6a336c9aea84da51fe9926006e09a0a7446b/shwedagon-pagoda.jpg",
+    "https://raw.githubusercontent.com/yachi153/myanmar/4dbd084f4b2e4e86be9946daf3e47469e5ab3ff7/bagan1.jpg"
+];
+
+startButton.onclick = function() {
+    startButton.style.display = "none";
+    gameContainer.style.display = "grid";
+    resetButton.style.display = "block";
+    infoPanel.style.display = "block";
+    
+    currentLevel = 1;
+    startLevel(currentLevel);
+};
+
+resetButton.onclick = function() {
+    currentLevel = 1;
+    startLevel(currentLevel);
+};
+
+function startLevel(level) {
+    gameContainer.innerHTML = "";
+    gameContainer.style.display = "grid";
+    firstCard = null;
+    secondCard = null;
+    lock = false;
+    matchedPairs = 0;
+
+    remainingTries = 16 - level;
+
+    levelDisplay.textContent = level;
+    triesDisplay.textContent = remainingTries;
+    
+    gameMessage.classList.remove("game-over-text");
+    gameMessage.textContent = "Find the matching places!";
+
+    var images = placeImages.concat(placeImages);
+    images.sort(function() { return Math.random() - 0.5; });
+
+    images.forEach(function(src) {
+        var card = document.createElement("div");
+        card.classList.add("game-card");
+
+        var img = document.createElement("img");
+        img.src = src;
+
+        card.appendChild(img);
+        card.onclick = function() { flipCard(card); };
+
+        gameContainer.appendChild(card);
+    });
+}
+
+function flipCard(card) {
+    if (lock || card === firstCard || card.querySelector("img").style.display === "block") return;
+
+    var img = card.querySelector("img");
+    img.style.display = "block";
+
+    if (!firstCard) {
+        firstCard = card;
+    } else {
+        secondCard = card;
+        lock = true;
+
+        setTimeout(function() {
+            var img1 = firstCard.querySelector("img");
+            var img2 = secondCard.querySelector("img");
+
+            if (img1.src === img2.src) {
+                firstCard.style.visibility = "hidden";
+                secondCard.style.visibility = "hidden";
+                matchedPairs++;
+
+                if (matchedPairs === placeImages.length) {
+                    showRewardModal();
+                }
+            } else {
+                img1.style.display = "none";
+                img2.style.display = "none";
+                
+                remainingTries--;
+                triesDisplay.textContent = remainingTries;
+
+                if (remainingTries === 0) {
+                    handleGameOver();
+                    return;
+                }
+            }
+
+            firstCard = null;
+            secondCard = null;
+            lock = false;
+        }, 800);
+    }
+}
+
+function handleGameOver() {
+    gameContainer.style.display = "none";
+    gameMessage.classList.add("game-over-text");
+    gameMessage.textContent = " GAME OVER! You ran out of tries. ";
+}
+
+function showRewardModal() {
+    destinationList.innerHTML = "";
+    
+    destinationLinks.forEach(function(place) {
+        var a = document.createElement("a");
+        a.href = place.file; 
+        a.textContent = " " + place.name;
+        a.classList.add("destination-item");
+        a.target = "_blank";
+
+        a.onclick = function() {
+            setTimeout(function() {
+                var allLinks = destinationList.querySelectorAll(".destination-item");
+                allLinks.forEach(function(link) {
+                    link.classList.add("disabled"); 
+                    link.removeAttribute("href");   
+                });
+            }, 100);
+        };
+
+        destinationList.appendChild(a);
+    });
+
+    rewardModal.style.display = "flex";
+}
+
+nextLevelBtn.onclick = function() {
+    rewardModal.style.display = "none";
+
+    if (currentLevel < maxLevel) {
+        currentLevel++;
+        startLevel(currentLevel);
+    } else {
+        gameContainer.style.display = "none";
+        gameMessage.textContent = " CONGRATULATIONS! You beat all levels! ";
+    }
+};
+</script>
+
+<footer>
+  Myanmar Travel Guide By Yachi
+</footer>
+</body> 
+</html>

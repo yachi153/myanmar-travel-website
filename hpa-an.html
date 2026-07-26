@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hpa-an Travel Guide</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #C6F5AE;
+  }
+
+  header {
+    position: relative;
+    height: 70vh;
+    min-height: 550px;
+    background:url("https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/hpa-an2.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .about-section {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  .about-section p {
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+  }
+
+  .spot-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    margin-bottom: 40px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .spot-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .spot-card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .spot-img {
+    flex: 1;
+    min-height: 280px;
+    max-height: 350px;
+    overflow: hidden;
+  }
+
+  .spot-img img {
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .spot-content {
+    flex: 1;
+    padding: 30px;
+  }
+
+  .spot-content h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+
+  .spot-content p {
+    color: #666;
+    font-size: 0.95rem;
+  }
+   
+  footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color:black ;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .spot-card, 
+    .spot-card:nth-child(even) {
+      flex-direction: column;
+    }
+
+    .spot-img {
+      width: 100%;
+      height: 220px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>HPA-AN</h1>
+</header>
+
+<div class="container">
+  <section class="about-section">
+    <h2>About Hpa-an</h2>
+    <p>
+      ミャンマー南東部のカレン州にあるバ―アンは、美しい自然と穏やかな雰囲気が魅力の町です。
+      石灰岩の山々や洞窟、湖、滝などが広がり、ヤンゴンから気軽に行ける観光地として人気があります。
+      特に夕日の景色や田園風景はとても美しく、リラックスした旅を楽しむことができます。
+    </p>
+  </section>
+
+  <h2 class="section-title">有名なところ</h2>
+
+  <div class="spots-wrapper">
+
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://raw.githubusercontent.com/yachi153/Ethnic-photos/77c959df9b54e9a25c596fbc56fb63bfd79ef9fb/zwekapin.jpg" alt="Zwe Ka Bin Mountain">
+      </div>
+      <div class="spot-content">
+        <h3>Zwe Ka Bin Mountain</h3>
+        <p>ズェカピン山は、ミャンマー・カレン州バ―アンを代表する有名な山で、標高は約722メートルあります。山頂には僧院があり、登山者はそこで休憩したり宿泊したりすることもできます。急な階段が続く登山コースですが、頂上からはバ―アンの田園風景や山々を一望でき、特に日の出の景色はとても美しいです。</p>
+      </div>
+    </div>
+
+    
+
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://raw.githubusercontent.com/yachi153/Ethnic-photos/77c959df9b54e9a25c596fbc56fb63bfd79ef9fb/Mount%20Taung%20Wine.jpg" alt="タウンワイン山">
+      </div>
+      <div class="spot-content">
+        <h3>タウンワイン山</h3>
+        <p>軽いハイキングで登れる山で、頂上からはバ―アンの町や自然を一望できます。日の出・日の入りの時間がおすすめです。</p>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://d6qyz3em3b312.cloudfront.net/upload/images/media/2023/11/16/Kyone_Htaw_Waterfall.2048x1024.jpg" alt="キョンカウト滝">
+      </div>
+      <div class="spot-content">
+        <h3>キョンカウト滝</h3>
+        <p>岩の間を流れる美しい滝で、自然の中でリラックスできるスポットです。ピクニックにも適しています。</p>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://jonnymelon.com/wp-content/uploads/2018/12/sadan-cave-7.jpg?x62219" alt="サンダー洞窟">
+      </div>
+      <div class="spot-content">
+        <h3>サンダー洞窟</h3>
+        <p>バ―アンで有名な大きな洞窟。入口には仏像が並び、内部には鍾乳石が広がります。洞窟を抜けると湖があり、ボート体験も楽しめます。</p>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://raw.githubusercontent.com/yachi153/Ethnic-photos/77c959df9b54e9a25c596fbc56fb63bfd79ef9fb/kyaukkalappagoda.jpg" alt="Kyaukkalat Pagoda">
+      </div>
+      <div class="spot-content">
+        <h3>Kyaukkalat Pagoda</h3>
+        <p>湖の中央に 聳え立つ奇岩の上に建てられた素晴らしい仏塔です。周囲の山々との美しさを感じられる所です。</p>
+      </div>
+    </div>
+	
+	<div class="spot-card">
+      <div class="spot-img">
+        <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/hpa-an.jpg" alt="トゥンパーアイン" style="width:100%;height:auto; ">
+      </div>
+      <div class="spot-content">
+        <h3>トゥンパーアイン</h3>
+        <p>静かな湖で、山の景色が水面に映る美しい場所です。朝や夕方は特に写真スポットとして人気があります。</p>
+      </div>
+    </div>
+
+	
+	
+	<div class="spot-card">
+      <div class="spot-img">
+        <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/hpaan1.jpg" alt="マウンチャーイン">
+      </div>
+      <div class="spot-content">
+        <h3>マウンチャーイン</h3>
+        <p>地元の人々の生活が見られる穏やかな湖です。ボートや漁の風景など、ミャンマーらしい日常を感じることができます。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<footer>
+    Myanmar Travel Guide by Yachi
+</footer>
+
+</body>
+</html>
