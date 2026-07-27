@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kawthaung Travel Guide</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color:#9BD5F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+  }
+
+  header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 50px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: #012925;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    color: black;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .about {
+    font-size: 0.95rem;
+    color: white;
+    line-height: 1.8;
+    background: #4F85B0;
+    padding: 25px 30px;
+    border-radius: 12px;
+    text-align: justify;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    color: black;
+    letter-spacing: 2px;
+    margin: 40px 0 20px;
+    text-align: center;
+    position: relative;
+  }
+
+
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+    height: 380px;
+    gap: 10px;
+    transition: 0.3s;
+    list-style: none;
+    margin-bottom: 60px;
+  }
+
+  .container li {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 130px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .container li img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+  }
+
+  .container li .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    color: black;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .container li .content span {
+    width: 100%;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+  }
+
+  .container h2 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: orange;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+
+  .container p {
+    font-size: 0.85rem;
+    color: white;
+    line-height: 1.5;
+  }
+
+  .container:hover {
+    gap: 6px;
+  }
+
+  .container li:hover {
+    flex: 1 0 280px;
+    z-index: 10;
+  }
+
+  .container li:hover img {
+    scale: 1.05;
+  }
+
+  .container li:hover .content {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .container li:hover .content span {
+    transform: translateY(0);
+  }
+
+  .activity-list {
+    max-width: 800px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    list-style: none;
+    margin-bottom: 60px;
+  }
+
+  .activity-list li {
+    background: #4F85B0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: white;
+    transition: 0.3s ease;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color:#4F85B0 ;
+    margin-top: 20px;
+  }
+
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    .container li {
+      flex: none;
+      width: 100%;
+      height: 180px;
+    }
+    .container li:hover {
+      flex: none;
+      height: 240px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <span class="subtitle">MYANMAR SOUTHERN TRIP</span>
+    <h1>KAWTHAUNG</h1>
+    <div class="about">
+      カタウン（Kawthaung）は、ミャンマー最南端に位置する港町で、タイとの国境に近い町として知られています。アンダマン海に面しており、美しい海や島々への玄関口として、多くの旅行者が訪れます。特にメルギー諸島は手つかずの自然と高い透明度の海が魅力で、ダイビングやアイランドホッピングが人気です。
+    </div>
+  </header>
+
+  <h2 class="section-title">ISLANDS & SPOTS</h2>
+
+  <ul class="container">
+    <li>
+      <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/Nyaung%20Oo%20Phee%20Island%20(Kawthaung).jpg" alt="ニャウンウーピー島">
+      <div class="content">
+        <span>
+          <h2>Nyaung Oo Phee</h2>
+          <p>透明な海と白い砂浜が広がる美しい島。シュノーケリングやダイビングに最適です。</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/heart%20island.jpg" alt="ハート島">
+      <div class="content">
+        <span>
+          <h2>Heart Island</h2>
+          <p>上空から見るとハートの形に見える神秘的な人気フォトスポット。</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/115island.jpg" alt="115島">
+      <div class="content">
+        <span>
+          <h2>115 Island</h2>
+          <p>多くの小島と美しい海に囲まれ、ボートツアーや散策が楽しめます。</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/Nga%20Man%20island%20.jpg" alt="ガーマン島">
+      <div class="content">
+        <span>
+          <h2>Nga Man Island</h2>
+          <p>豊かな自然と静かな海に包まれた、リラックスできる隠れ家スポット。</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/kawthaung.jpg" alt="カタウン港">
+      <div class="content">
+        <span>
+          <h2>Kawthaung Town</h2>
+          <p>ローカルマーケットや寺院があり、ミャンマーの暮らしを感じられます。</p>
+        </span>
+      </div>
+    </li>
+    <li>
+      <img src="https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/diving.jpg" alt="ダイビング">
+      <div class="content">
+        <span>
+          <h2>Diving Spot</h2>
+          <p>アンダマン海の豊かな海中世界を楽しめる世界有数のポイント。</p>
+        </span>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-title">THINGS TO DO</h2>
+
+  <ul class="activity-list">
+    <li> ボートツアーで絶景クルーズ</li>
+    <li> アイランドホッピング巡り</li>
+    <li> 透明な海でシュノーケリング</li>
+    <li> 本格的な海中ダイビング</li>
+    <li> 新鮮なシーフードを堪能</li>
+  </ul>
+
+  <footer>
+    Myanmar Travel Guide by Yachi
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inlay Travel Guide </title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: #ffe6e6;
+    line-height: 1.8;
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: url("https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/inlay6.jpg") center/cover no-repeat;
+    padding: 0 20px 60px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .header-content {
+    max-width: 800px;
+  }
+
+  .header-content h1 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: #f7f9f7;
+    text-transform: uppercase;
+  }
+
+  .header-content p {
+    font-size: 1.15rem;
+    font-weight:bold;
+    color: #d8e2d7;
+  }
+
+  main {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+
+  section {
+    margin-bottom: 80px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.7rem;
+    color: #102113;
+    margin-bottom: 30px;
+  }
+  
+  .overview-card p {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    color: #374a3a;
+  }
+
+  .frame {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+	transition: transform 0.5s ease;
+  }
+  
+
+  .spot-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .spot-card-modern {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #e2e8e1;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .spot-card-thumb {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spot-card-thumb img, .spot-card-thumb-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  .spot-card-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .spot-card-body h3 {
+    font-size: 1.35rem;
+    color: #102113;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .spot-card-body p {
+    color: #4a5d4b;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .festival-inline-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  .inline-photo-box {
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .inline-photo-box img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .inline-photo-box span {
+    position: absolute;
+    inset: 0;
+    background: rgba(16, 33, 19, 0.4);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .inline-photo-box:hover span {
+    opacity: 1;
+  }
+
+  .tabs {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 10px;
+    border: 1px solid #e2e8e1;
+  }
+
+  .tab-nav {
+    display: flex;
+    gap: 10px;
+    background: #f4f6f4;
+    padding: 6px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+  }
+
+  .tab-nav-btn {
+    flex: 1;
+    padding: 14px 18px;
+    border: none;
+    background: transparent;
+    color: #556856;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .tab-nav-btn.active {
+    background: #102113;
+    color: #ffffff;
+  }
+
+  .tab-panel {
+    display: none;
+    padding: 15px 20px 20px;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
+  .tab-panel h3 {
+    font-size: 1.3rem;
+    color: #102113;
+    margin-bottom: 10px;
+  }
+
+  .tab-panel p {
+    color: #4a5d4b;
+    margin-bottom: 20px;
+  }
+
+  .tab-image-container {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    color: #8c9e8d;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  @media (max-width: 850px) {
+    .spot-grid-layout {
+      grid-template-columns: 1fr;
+    }
+    .header-content h1 {
+      font-size: 2.8rem;
+    }
+    .tab-nav {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>Inlay Lake</h1>
+    <p>ミャンマーの美しい水上世界へようこそ</p>
+  </div>
+</header>
+
+<main>
+  <section id="overview">
+    <div class="overview-card">
+      <h2 class="section-title">インレー湖</h2>
+      <p>インレー湖は、ミャンマーのシャン州にある美しい湖で、独特な文化と自然で有名です。特に、片足でボートを漕ぐ漁師の姿が world-famous として知られています。</p>
+      <div class="frame">
+        <img src="https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle6.jpg" alt="Inle Lake Main">
+      </div>
+    </div>
+  </section>
+
+  <section id="spots">
+    <h2 class="section-title">有名な所</h2>
+    
+    <div class="spot-grid-layout">
+      <div class="spot-card-modern">
+        <div class="spot-card-thumb">
+          <div class="spot-card-thumb-bg" style="background-image: url('https://raw.githubusercontent.com/yachi153/burma/5765efca794b553475561e50ebbb16635d7a87f0/inlaymarket.jpg');"></div>
+        </div>
+        <div class="spot-card-body">
+          <h3>インレー湖の水上マーケット</h3>
+          <p>インレー湖の水上マーケットでは、人々がボートの上で野菜や果物、日用品を売買します。毎日場所が変わる「五日市場」としても有名で、地元の生活を体験できます。</p>
+        </div>
+      </div>
+
+      <div class="spot-card-modern">
+        <div class="spot-card-thumb">
+          <div class="spot-card-thumb-bg" style="background-image: url('https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle10.jpg');"></div>
+        </div>
+        <div class="spot-card-body">
+          <h3>インレー湖の家</h3>
+          <p>インレー湖の家は水の上に建てられており、「高床式住宅」と呼ばれます。木で作られていて、船で移動する生活が特徴です。</p>
+        </div>
+      </div>
+
+      <div class="spot-card-modern">
+        <div class="spot-card-thumb">
+          <div class="spot-card-thumb-bg" style="background-image: url('https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle4.jpg');"></div>
+        </div>
+        <div class="spot-card-body">
+          <h3>ファウンダウー・ウー祭り & パゴダ</h3>
+          <p>ファウンダウー・ウー祭りはインレー湖で最も重要な仏教行事です。仏像を船に乗せて湖を巡る行事で、多くの人が参加します。</p>
+          
+          <div class="festival-inline-photos">
+            <div class="inline-photo-box">
+              <img src="https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle9.jpg" alt="Festival 1">
+              <span>祭り</span>
+            </div>
+            <div class="inline-photo-box">
+              <img src="https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle1.jpg" alt="Festival 2">
+              <span>巡行</span>
+            </div>
+            <div class="inline-photo-box">
+              <img src="https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle8.jpg" alt="Pagoda">
+              <span>パゴダ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+	  
+      <div class="spot-card-modern">
+        <div class="spot-card-thumb">
+          <div class="spot-card-thumb-bg" style="background-image: url('https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle7.jpg');"></div>
+        </div>
+        <div class="spot-card-body">
+          <h3>インレー湖のはす（蓮の織物）</h3>
+          <p>インレー湖では蓮の茎から糸を作り、布を織る伝統があります。</p>
+		  <br>
+          <div class="festival-inline-photos">
+            <div class="inline-photo-box">
+              <img src="https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle13.jpg" alt="clothes">
+              <span>織物</span>
+            </div>
+			<div class="inline-photo-box">
+              <img src="https://scontent.fhnd4-2.fna.fbcdn.net/v/t39.30808-6/486613318_1132974458633713_2556183164574801834_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=tlVeSlYBXjMQ7kNvwF5lVDF&_nc_oc=AdoKE62xKumYEez1sIjItaX_p5h8rp6lIdPdrtafQRGyB62KiOJdcLFPJ-EJAxGtfE_2s2jIh0UjCOCN4zABk_Ow&_nc_zt=23&_nc_ht=scontent.fhnd4-2.fna&_nc_gid=L0XwPGQZWciDq5XPvQej_Q&_nc_ss=7b2a8&oh=00_AQBE0E40iNYyHPhTtY6L7YE3DRM6TFBJZQQ4xyVurXUA-Q&oe=6A69386B" alt="clothes">
+              <span>織物</span>
+            </div>
+			<div class="inline-photo-box">
+              <img src="https://i.ytimg.com/vi/6DgGyvrDwmw/hqdefault.jpg" alt="clothes">
+              <span>織物</span>
+            </div>
+		
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2 class="section-title">おすすめアクティビティ</h2>
+    
+    <div class="tabs">
+      <div class="tab-nav">
+        <button class="tab-nav-btn active" onclick="switchTab(event, 'tab-bird')">鳥に餌をあげる</button>
+        <button class="tab-nav-btn" onclick="switchTab(event, 'tab-boat')">モーターボート体験</button>
+        <button class="tab-nav-btn" onclick="switchTab(event, 'tab-dress')">衣装体験</button>
+      </div>
+
+      <div id="tab-bird" class="tab-panel active">
+        <h3>鳥に餌をあげる体験</h3>
+        <p>インレー湖では鳥に餌をあげる体験もできます。自然が豊かで、多くの水鳥が見られ、リラックスした時間を楽しめます。</p>
+        <div class="tab-image-container">
+          <img src="https://mmbiztoday.com/wp-content/uploads/2015/06/15Inlay-Lake_birds-picture-Photo-2-696x485.jpg" alt="Feeding birds">
+        </div>
+      </div>
+
+      <div id="tab-boat" class="tab-panel">
+        <h3>モーターボート体験</h3>
+        <p>観光客はモーターボートに乗って湖を巡ることができます。水上の村や寺院、自然を近くで見ることができ、とても人気のアクティビティです。</p>
+        <div class="tab-image-container">
+          <img src="https://www.passportandpixels.com/wp-content/uploads/2017/07/Inle_0029_pp-1.jpg" alt="Motorboat tour">
+        </div>
+      </div>
+
+      <div id="tab-dress" class="tab-panel">
+        <h3>インレー衣装を着て写真を撮る体験</h3>
+        <p>インレー湖では、伝統的な衣装を着て写真を撮る体験ができます。旅の思い出として, 観光客にとても人気があります。</p>
+        <div class="tab-image-container">
+          <img src="https://raw.githubusercontent.com/yachi153/myanmar/e8badc422bc516807f6476d6408b2505c1052dc6/inle12.jpg" alt="Traditional dress">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script>
+  function switchTab(event, tabId) {
+    var panels = document.getElementsByClassName('tab-panel');
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].classList.remove('active');
+    }
+
+    var buttons = document.getElementsByClassName('tab-nav-btn');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('active');
+    }
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+<footer>
+	Travel Guide by Yachi
+</footer>
+</body>
+</html>
