@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thingyan Festival | Myanmar</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #eef8fc;
+            color: #263746;
+        }
+
+
+
+        header {
+            background-color: #087fa8;
+            color: white;
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            letter-spacing: 3px;
+        }
+
+        header p {
+            font-size: 17px;
+            margin-top: 5px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin: 5px 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffe68a;
+            transform: translateY(-2px);
+        }
+
+
+
+        .hero {
+            min-height: 700px;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 50, 90, 0.35),
+                    rgba(0, 50, 90, 0.45)
+                ),
+                url("https://www.vietvisiontravel.com/wp-content/uploads/2018/07/Water-Splash-in-Myanmar-Thingyan.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            text-shadow: 2px 2px 8px #333;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-top: 15px;
+        }
+
+        section {
+            padding: 60px 8%;
+            text-align: center;
+            background-color: #eef8fc;
+        }
+
+        section h2 {
+            color: #087fa8;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        section p {
+            text-align: left;
+            max-width: 850px;
+            margin: 15px auto;
+        }
+
+
+
+        .main-img {
+            width: 100%;
+            max-width: 750px;
+            height: 380px;
+
+            object-fit: cover;
+            border-radius: 20px;
+
+            margin: 20px auto;
+
+            box-shadow: 0 5px 15px #c5dce8;
+        }
+
+
+
+        .history {
+            background-color: #eef8fc;
+        }
+
+
+        .padauk {
+            background-color: #eef8fc;
+        }
+
+        .padauk-box {
+            max-width: 1000px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .padauk-box img {
+            width: 100%;
+            max-width: 420px;
+            height: 330px;
+
+            object-fit: cover;
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px #c5dce8;
+        }
+
+        .padauk-text {
+            max-width: 450px;
+        }
+
+        .padauk-text p {
+            margin-bottom: 15px;
+        }
+
+        .flower-name {
+            color: #c98700;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        .days {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 22px;
+
+            width: 230px;
+
+            border-radius: 18px;
+            box-shadow: 0 4px 12px #d0e4ef;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #087fa8;
+            margin-bottom: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 170px;
+
+            object-fit: cover;
+            border-radius: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        .activity {
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+
+            background-color: white;
+            padding: 25px;
+
+            margin: 25px auto;
+            max-width: 900px;
+
+            border-radius: 18px;
+            box-shadow: 0 4px 12px #d0e4ef;
+
+            text-align: left;
+        }
+
+        .activity img {
+            width: 250px;
+            height: 180px;
+
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .activity h3 {
+            color: #087fa8;
+            margin-bottom: 10px;
+        }
+
+
+        .food-box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .food-card {
+            background-color: white;
+            padding: 22px;
+
+            width: 250px;
+
+            border-radius: 18px;
+            box-shadow: 0 4px 12px #d0e4ef;
+
+            transition: 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-card h3 {
+            color: #087fa8;
+            margin-bottom: 10px;
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 180px;
+
+            object-fit: cover;
+            border-radius: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .card img,
+        .activity img,
+        .food-card img,
+        .padauk-box img {
+            cursor: zoom-in;
+            transition: 0.3s;
+        }
+
+        .card img:hover,
+        .activity img:hover,
+        .food-card img:hover,
+        .padauk-box img:hover {
+            transform: scale(1.04);
+        }
+
+
+
+        .lightbox {
+            display: none;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.85);
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 9999;
+            padding: 30px;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+            box-shadow: 0 5px 25px black;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+
+            color: white;
+            font-size: 40px;
+
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .close-button:hover {
+            color: #ffe68a;
+        }
+
+
+        .meaning {
+            background-color: #eef8fc;
+        }
+
+        .meaning h2 {
+            color: #087fa8;
+        }
+
+        .meaning h3 {
+            color: #c98700;
+            font-size: 25px;
+            margin: 30px 0;
+        }
+
+
+        footer {
+            background-color: #087fa8;
+            color: white;
+
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                font-size: 13px;
+                margin: 5px;
+            }
+
+            .hero {
+                min-height: 350px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+
+            section h2 {
+                font-size: 25px;
+            }
+
+            .main-img {
+                height: 250px;
+            }
+
+            .padauk-box img {
+                height: 250px;
+            }
+
+            .activity {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .activity img {
+                width: 100%;
+                height: 220px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .food-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .meaning h3 {
+                font-size: 20px;
+            }
+
+            .lightbox img {
+                max-width: 95%;
+                max-height: 75%;
+            }
+
+            .close-button {
+                top: 10px;
+                right: 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>THINGYAN FESTIVAL</h1>
+
+        <p>ミャンマーの伝統的な水祭り</p>
+
+        <nav>
+            <a href="#about">祭りについて</a>
+            <a href="#history">歴史</a>
+            <a href="#padauk">パダウの花</a>
+            <a href="#days">開催期間</a>
+            <a href="#activities">活動</a>
+            <a href="#food">食べ物</a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN IMAGE -->
+
+    <div class="hero">
+
+        <div>
+
+            <h2>Happy Myanmar New Year!</h2>
+
+            <p>水と笑顔で迎える新しい一年</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2>💧 ティンジャン祭りとは？</h2>
+
+        <img
+            class="main-img"
+            src="https://www.vietvisiontravel.com/wp-content/uploads/2018/07/Water-Splash-in-Myanmar-Thingyan.jpg"
+            alt="ミャンマーのティンジャン祭り">
+
+        <p>
+            ティンジャン祭り（Thingyan Festival）は、
+            ミャンマーで毎年4月中旬に開催される伝統的な水祭りです。
+            ミャンマーの旧年を終え、新しい年の始まりを祝う
+            とても大切なお祭りです。
+        </p>
+
+        <p>
+            人々はお互いに水をかけ合い、
+            音楽やダンスを楽しみます。
+            水には、古い年の悪いことを洗い流し、
+            きれいな心で新しい年を迎えるという意味があります。
+        </p>
+
+        <p>
+            2024年には、ティンジャン祭りが
+            UNESCOの無形文化遺産に登録されました。
+        </p>
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section id="history" class="history">
+
+        <h2>📖 ティンジャン祭りの歴史</h2>
+
+        <p>
+            ティンジャン祭りは、長い歴史を持つ
+            ミャンマーの伝統的なお祭りです。
+            バガン王朝時代から続いているといわれています。
+        </p>
+
+        <p>
+            昔からミャンマーの人々は、
+            新年を迎えるときに水を使って身を清める習慣を
+            大切にしてきました。
+        </p>
+
+        <p>
+            この伝統は現在まで受け継がれ、
+            ミャンマー全国で祝われる大きなお祭りになりました。
+        </p>
+
+    </section>
+
+    <section id="padauk" class="padauk">
+
+        <h2>🌼 ミャンマーの代表的な花 Padauk Flower</h2>
+
+        <div class="padauk-box">
+
+            <img
+                src="https://as1.ftcdn.net/jpg/12/07/80/14/1000_F_1207801483_Nlrey4tYOfDjgUfDhE1QecvqKDp4h9Ok.jpg"
+                alt="ミャンマーのパダウの花">
+
+            <div class="padauk-text">
+
+                <h3 class="flower-name">
+                    Padauk Flower（パダウの花）
+                </h3>
+
+                <p>
+                    パダウの花は、ミャンマーを代表する
+                    黄色い美しい花です。
+                    ミャンマーの国花として知られています。
+                </p>
+
+                <p>
+                    パダウの花は、毎年ティンジャンの季節に
+                    咲くことで有名です。
+                    花が咲くと、ミャンマーの人々は
+                    新年が近づいていることを感じます。
+                </p>
+
+                <p>
+                    黄色い花は、明るさ、希望、新しい始まりを
+                    感じさせます。
+                    ティンジャンの時期には、髪にパダウの花を飾ったり、
+                    お祭りの会場を花で飾ったりします。
+                </p>
+
+                <p>
+                    パダウの花は、ティンジャン祭りに欠かせない
+                    ミャンマーの大切な文化的シンボルです。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="days">
+
+        <h2>📅 ティンジャンの開催期間</h2>
+
+        <div class="days">
+
+            <div class="card">
+
+                <h3>① アチョー・ネー</h3>
+
+                <p>お祭りの準備をする日です。</p>
+
+                <img
+                    src="https://npspace.sgp1.digitaloceanspaces.com/Access/artwork/a06686b3-36dd-4843-a0eb-09f7bb987b40/image/Myanmar%20Traditional%20Burmese%20Thingyan%20Pot%20or%20Ah-Tar-Oh.png_1767665210.png"
+                    alt="ティンジャンの伝統的な水の器">
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>② アキャ・ネー</h3>
+
+                <p>水祭りが本格的に始まる日です。</p>
+
+                <img
+                    src="https://english.news.cn/20241206/3edb6bd4069440dfba9dc8f54088baa9/202412063edb6bd4069440dfba9dc8f54088baa9_ChkhgeE007020_20241206_CBMFN0A001.JPG"
+                    alt="ティンジャンの水祭り">
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>③ アキャッ・ネー</h3>
+
+                <p>水遊びや音楽、ダンスを楽しみます。</p>
+
+                <img
+                    src="https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2024/03/pegu-2.jpg"
+                    alt="ティンジャンの活動">
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>④ アテッ・ネー</h3>
+
+                <p>水祭りの最終日です。</p>
+
+                <img
+                    src="https://www.myanmaritv.com/sites/default/files/styles/news_detail_image/public/Thingyan%20Atat%20Day%20in%20Bago%20(3).jpg"
+                    alt="ティンジャンの最終日">
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>⑤ ミャンマーの新年</h3>
+
+                <p>お寺に行き、新しい一年の幸せを祈ります。</p>
+
+                <img
+                    src="https://mdn.gov.mm/sites/default/files/2026-04/KHP_0013_0-1.jpg"
+                    alt="ミャンマーの新年">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIVITIES -->
+
+    <section id="activities">
+
+        <h2>🎉 ティンジャンの主な活動</h2>
+
+
+        <div class="activity">
+
+            <img
+                src="https://www.myanmarphototour.com/wp-content/uploads/2025/11/Water-Festival.jpg"
+                alt="水をかけ合う人々">
+
+            <div>
+
+                <h3>水をかけ合う</h3>
+
+                <p>
+                    友人や家族、地域の人々と水をかけ合います。
+                    水は古い年の悪いことを洗い流す象徴です。
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <img
+                src="https://aseanfoodtravel.com/wp-content/uploads/2019/12/Photo-Credit-Aung-Myint-Htwe-1140x814.jpg"
+                alt="ティンジャンの音楽とダンス">
+
+            <div>
+
+                <h3>音楽とダンス</h3>
+
+                <p>
+                    特設ステージで歌やダンスが行われ、
+                    多くの人々が一緒に楽しみます。
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <img
+                src="https://cdn.digitalagencybangkok.com/file/client-cdn/gnlm/wp-content/uploads/2025/04/17-4-2025-10-1024x583.jpg"
+                alt="ティンジャンの寄付活動">
+
+            <div>
+
+                <h3>寄付と社会貢献</h3>
+
+                <p>
+                    お寺にお参りしたり、食べ物や飲み物を
+                    無料で配ったりして、助け合います。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOD -->
+
+    <section id="food">
+
+        <h2>🍡 ティンジャンの伝統料理</h2>
+
+        <div class="food-box">
+
+            <div class="food-card">
+
+                <h3>モンロンイェーポー</h3>
+
+                <img
+                    src="https://i.pinimg.com/736x/af/92/97/af9297e0d70b2b1165a798daa52ea965.jpg"
+                    alt="モンロンイェーポー">
+
+                <p>
+                    もち米の生地に砂糖を入れてゆでた
+                    伝統的なお菓子です。
+                </p>
+
+            </div>
+
+
+            <div class="food-card">
+
+                <h3>モンレットサウン</h3>
+
+                <img
+                    src="https://1.bp.blogspot.com/-cMiDgDpgVzg/Xt5mqR3MiWI/AAAAAAAAArM/PO6LdqaqAD8GVOm0BrDC4KK1yGKZbEZBwCLcBGAsYHQ/s1600/Mont%2BLat%2BSaung.JPG"
+                    alt="モンレットサウン">
+
+                <p>
+                    ココナッツミルクや黒糖を使った
+                    冷たいデザートです。
+                </p>
+
+            </div>
+
+
+            <div class="food-card">
+
+                <h3>シュエインエー</h3>
+
+                <img
+                    src="https://www.chefspencil.com/wp-content/uploads/Shwe-Yin-Aye-1300x1300.jpg"
+                    alt="シュエインエー">
+
+                <p>
+                    ココナッツミルクやゼリーを使った
+                    人気のデザートです。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEANING -->
+
+    <section id="meaning">
+
+        <h2>🌸 ティンジャン祭りの意味</h2>
+
+        <p>
+            ティンジャン祭りは、単なる水遊びではありません。
+            家族や友人との絆を深め、感謝の気持ちを伝え、
+            他の人と助け合う大切な行事です。
+        </p>
+
+        <h3>
+            「水で古い年を洗い流し、<br>
+            きれいな心で新しい年を迎える」
+        </h3>
+
+        <p>
+            パダウの花とともに、新しい一年の幸せや希望を願います。
+            これがティンジャン祭りの大切な意味です。
+        </p>
+
+    </section>
+
+
+
+    <footer>
+
+
+        <p>Happy Thingyan! 🌼</p>
+
+    </footer>
+
+
+    <div class="lightbox" id="lightbox">
+
+        <button class="close-button" id="closeButton">
+            &times;
+        </button>
+
+        <img id="largeImage" src="" alt="拡大写真">
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // 写真をクリックすると大きく表示する
+
+        var images = document.querySelectorAll(
+            ".card img, .activity img, .food-card img, .padauk-box img"
+        );
+
+        var lightbox = document.getElementById("lightbox");
+        var largeImage = document.getElementById("largeImage");
+        var closeButton = document.getElementById("closeButton");
+
+        // すべての写真にクリックイベントを設定
+
+        images.forEach(function(image) {
+
+            image.addEventListener("click", function() {
+
+                largeImage.src = image.src;
+                largeImage.alt = image.alt;
+
+                lightbox.style.display = "flex";
+
+            });
+
+        });
+
+        // ×ボタンで閉じる
+
+        closeButton.addEventListener("click", function() {
+
+            lightbox.style.display = "none";
+
+        });
+
+        // 写真の外側をクリックして閉じる
+
+        lightbox.addEventListener("click", function(event) {
+
+            if (event.target === lightbox) {
+
+                lightbox.style.display = "none";
+
+            }
+
+        });
+
+        // Escapeキーで閉じる
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                lightbox.style.display = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
